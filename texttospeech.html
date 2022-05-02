@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+</head>
+<body>
+    <div>
+        <h1 class="heading">Convert any thing to speech</h1>
+        <textarea placeholder="Enter Your text here" rows="10" class="textarea"></textarea>
+        <button class="btn">Convert</button>
+    </div>
+
+    <script>
+    
+    let speech = new SpeechSynthesisUtterance()
+
+
+     let heading = document.querySelector('.heading')
+     window.addEventListener("load",() => {
+        speech.text = heading.innerHTML
+          speech.pitch = 1
+          speech.volume = 1;
+          speech.lang = "en-US"
+          speech.rate = 1
+          speechSynthesis.speak(speech);
+     })
+
+
+      const button = document.querySelector('.btn')
+      const textarea = document.querySelector('.textarea')
+
+      button.addEventListener('click',() => {
+          speech.text = textarea.value
+          speech.pitch = 1
+          speech.volume = 1;
+          speech.lang = "en-US"
+          speech.rate = 1
+          speechSynthesis.speak(speech);
+          
+      });
+
+    </script>
+</body>
+</html>
